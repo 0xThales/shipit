@@ -1,0 +1,209 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Just Ship It — De 0 a producto con IA en 30 minutos"
+  description="Ve nacer un producto real con IA en 30 minutos. Sin slides. Sin teoría. Gratis. Sábado 8 de marzo a las 10:30am."
+>
+  <main>
+    <header>
+      <p class="wordmark">just ship it</p>
+    </header>
+
+    <section>
+      <p class="greeting">Hola</p>
+      <p>
+        Soy Daniel. Ingeniero de producto, profesor y no tengo nada que venderte.
+      </p>
+      <p>
+        Desde diciembre de 2025 el mundo cambió para siempre. Cualquier persona
+        puede construir software con IA, sin saber programar.
+      </p>
+      <p>
+        Llevo creando software desde 2021. En el último año he visto cómo esto
+        cambia todo. Y quiero que en 30 minutos tengas las herramientas para
+        construir tu primer producto.
+      </p>
+    </section>
+
+    <section>
+      <h2>¿Qué es esto?</h2>
+      <p>
+        En 30 minutos vas a ver nacer un producto real con IA, desde cero.
+      </p>
+      <p>
+        No es un curso. No es un taller. Es ver que se puede hacer,
+        para que dejes de tener excusas.
+      </p>
+      <p>
+        Sin slides. Sin teoría. Solo construir.
+      </p>
+    </section>
+
+    <section>
+      <h2>Es para ti si</h2>
+      <ul>
+        <li>- Tienes miedo de empezar porque sientes que no sabes suficiente</li>
+        <li>- Eres técnico pero no sabes por dónde empezar con IA</li>
+        <li>- Llevas meses pensando en una idea y no la has tocado</li>
+      </ul>
+    </section>
+
+    <section class="session">
+      <h2>Próxima sesión</h2>
+      <p class="session-date">Sábado 8 de marzo · 10:30am (Madrid, España)</p>
+      <a
+        href="https://luma.com/bbt72joe"
+        class="cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar plaza
+      </a>
+      <p class="note">Gratis. Plazas limitadas.</p>
+    </section>
+
+    <footer>
+      <p>
+        Daniel Jiménez ·
+        <a
+          href="https://linkedin.com/in/dan-jimenez-dev"
+          target="_blank"
+          rel="noopener noreferrer">LinkedIn</a
+        > ·
+        <a
+          href="https://instagram.com/thales.me"
+          target="_blank"
+          rel="noopener noreferrer">Instagram</a
+        >
+      </p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 64px;
+  }
+
+  .wordmark {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 56px;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  section p {
+    color: #444444;
+    margin-bottom: 16px;
+  }
+
+  section p:last-child {
+    margin-bottom: 0;
+  }
+
+  section p strong {
+    color: #111111;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111111;
+  }
+
+  /* List */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    color: #444444;
+    padding: 6px 0;
+  }
+
+  /* Session CTA */
+  .session-date {
+    font-weight: 500;
+    color: #111111 !important;
+    font-size: 1.05rem;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 36px;
+    background: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta:hover {
+    opacity: 0.8;
+  }
+
+  .note {
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: #999999 !important;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+  }
+
+  footer p {
+    font-size: 0.875rem;
+    color: #999999;
+  }
+
+  footer a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  footer a:hover {
+    color: #111111;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    main {
+      padding: 48px 20px;
+    }
+
+    .greeting {
+      font-size: 1.3rem;
+    }
+
+    section {
+      margin-bottom: 44px;
+    }
+  }
+</style>
