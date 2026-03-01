@@ -3,22 +3,24 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Just Ship It — De 0 a producto con IA en 30 minutos"
+  title="Crea tu primer producto con IA — Hoy"
   description="Ve nacer un producto real con IA en 30 minutos. Sin slides. Sin teoría. Gratis. Sábado 8 de marzo a las 10:30am."
 >
   <main>
     <header>
-      <p class="wordmark">just ship it</p>
+      <p class="wordmark">Crea tu primer producto con IA — Hoy</p>
     </header>
 
     <section>
-      <p class="greeting">Hola</p>
+      <p class="greeting">Hola,</p>
       <p>
-        Soy Daniel. Ingeniero de producto, profesor y no tengo nada que venderte.
+        Soy Daniel y no tengo nada que venderte.
       </p>
       <p>
-        Desde diciembre de 2025 el mundo cambió para siempre. Cualquier persona
-        puede construir software con IA, sin saber programar.
+        Desde diciembre de 2025 el mundo cambió para siempre. 
+      </p>
+      <p>
+        Cualquier persona puede construir software con IA, sin saber programar.
       </p>
     </section>
 
@@ -32,20 +34,23 @@ import Layout from "../layouts/Layout.astro";
         para que dejes de tener excusas.
       </p>
       <p>
-        Sin slides. Sin teoría. Solo construir.
+        Sin slides. Sin teoría. Solo crear.
       </p>
       <p>
-        Después de la sesión, me quedo resolviendo dudas y te invito a un 
+        Después de la sesión, me quedo resolviendo dudas y te invito a un
         Discord gratuito donde juntarte con otros frikis con ganas de construir.
       </p>
+      <img src="/demo_cc.png" alt="Sesión en vivo con Claude Code" class="photo" />
     </section>
 
     <section>
       <h2>Es para ti si</h2>
       <ul>
-        <li>- Tienes miedo de empezar porque sientes que no sabes suficiente</li>
-        <li>- Eres técnico pero no sabes por dónde empezar con IA</li>
-        <li>- Llevas meses pensando en una idea y no la has tocado</li>
+        <li>- No sabes por dónde empezar</li>
+        <li>- Crees que esto no es para ti</li>
+        <li>- Eres técnico pero la IA te parece un mundo aparte</li>
+        <li>- Llevas meses con la misma idea aparcada</li>
+        <li>- Crees que te estás quedando atrás</li>
       </ul>
     </section>
 
@@ -61,6 +66,18 @@ import Layout from "../layouts/Layout.astro";
         Reservar plaza
       </a>
       <p class="note">Gratis. Plazas limitadas.</p>
+    </section>
+
+    <section>
+      <h2>Quién soy</h2>
+      <p>
+        Soy Daniel, ingeniero de producto y profesor de programación.
+      </p>
+      <p>
+        Llevo creando software desde 2021. En el último año la IA ha cambiado
+        completamente cómo construyo. Quiero enseñarte a hacer lo mismo y crear una comunidad de creadores de habla hispana.
+      </p>
+      <img src="/vr.webp" alt="Daniel Jiménez" class="photo photo-portrait" />
     </section>
 
     <footer>
@@ -90,18 +107,18 @@ import Layout from "../layouts/Layout.astro";
 
   /* Header */
   header {
-    margin-bottom: 64px;
+    margin-bottom: 32px;
   }
 
   .wordmark {
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 
   /* Sections */
   section {
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 
   .greeting {
@@ -139,6 +156,21 @@ import Layout from "../layouts/Layout.astro";
   li {
     color: #444444;
     padding: 6px 0;
+  }
+
+  /* Photos */
+  .photo {
+    width: 100%;
+    margin-top: 24px;
+    border-radius: 8px;
+  }
+
+  .photo-portrait {
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 20px;
   }
 
   /* Session CTA */
@@ -202,7 +234,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     section {
-      margin-bottom: 44px;
+      margin-bottom: 32px;
     }
   }
 </style>
