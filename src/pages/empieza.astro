@@ -1,0 +1,469 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout
+  title="Empieza a crear con IA"
+  description="Todo lo que necesitas para construir tu primer producto con IA. Desde cero, paso a paso."
+>
+  <main>
+    <nav>
+      <a href="/" class="back">&larr; shipit</a>
+    </nav>
+
+    <header>
+      <p class="wordmark">Empieza a crear</p>
+    </header>
+
+    <section>
+      <p>
+        Acabas de ver lo que se puede hacer con IA en 30 minutos.
+      </p>
+      <p>
+        Ahora te toca a ti.
+      </p>
+      <p>
+        Esta guía te lleva paso a paso desde cero hasta tener algo funcionando.
+      </p>
+    </section>
+
+    <section>
+      <h2>Elige tu camino</h2>
+      <p>
+        Hay muchas formas de crear con IA.
+        Aquí tienes dos opciones para empezar:
+      </p>
+
+      <div class="paths">
+        <a href="#facil" class="path-card">
+          <span class="path-label">Camino fácil</span>
+          <span class="path-title">Claude.ai</span>
+          <span class="path-desc">
+            Crea directamente desde el navegador. Sin instalar nada. Gratis.
+          </span>
+          <span class="path-tag">Recomendado para empezar</span>
+        </a>
+
+        <a href="#pro" class="path-card">
+          <span class="path-label">Camino pro</span>
+          <span class="path-title">Claude Code</span>
+          <span class="path-desc">
+            Instala una herramienta en tu terminal y construye sin límites.
+          </span>
+          <span class="path-tag">Para ir más allá</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="facil">
+      <h2>Camino fácil: Claude.ai</h2>
+      <p>
+        Claude.ai es el ChatGPT de Anthropic. No necesitas instalar nada y te permite usar modelos como Sonnet 4.6 sin pagar un duro.
+      </p>
+
+      <h3>1. Crea tu cuenta</h3>
+      <p>
+        Ve a <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">claude.ai</a>
+        y crea una cuenta gratuita.
+      </p>
+
+      <h3>2. Limitaciones del plan gratuito</h3>
+      <p>
+        El plan gratuito tiene un número limitado de mensajes al día.
+        Para la mayoría de personas que están empezando, es más que suficiente.
+      </p>
+    </section>
+
+    <section id="pro">
+      <h2>Camino pro: Claude Code</h2>
+      <p>
+        Claude Code es una herramienta de terminal que te permite construir proyectos
+        completos en tu ordenador. Es lo que uso yo en las sesiones en vivo.
+      </p>
+      <p>
+        Requiere algo más de setup, pero te da mucha más potencia y control.
+      </p>
+
+      <h3>1. Instala una terminal</h3>
+      <p>
+        Si estás en <strong>Mac</strong>, tu ordenador ya tiene una terminal.
+        Pero te recomiendo instalar
+        <a href="https://ghostty.org" target="_blank" rel="noopener noreferrer">Ghostty</a>,
+        que es más moderna y rápida.
+      </p>
+      <p>
+        Si estás en <strong>Windows</strong>, usa Windows Terminal
+        (viene preinstalado en Windows 11).
+      </p>
+
+      <h3>2. Instala Claude Code</h3>
+      <p>
+        Abre tu terminal y escribe:
+      </p>
+      <p><strong>Mac / Linux:</strong></p>
+      <div class="prompt-box">
+        <span>curl -fsSL https://claude.ai/install.sh | bash</span>
+        <button class="copy-btn" aria-label="Copiar al portapapeles">
+          <Icon name="lucide:clipboard" class="icon-copy" size={16} />
+          <Icon name="lucide:check" class="icon-check" size={16} />
+        </button>
+      </div>
+      <p><strong>Windows (PowerShell):</strong></p>
+      <div class="prompt-box">
+        <span>irm https://claude.ai/install.ps1 | iex</span>
+        <button class="copy-btn" aria-label="Copiar al portapapeles">
+          <Icon name="lucide:clipboard" class="icon-copy" size={16} />
+          <Icon name="lucide:check" class="icon-check" size={16} />
+        </button>
+      </div>
+      <p>
+        No necesitas instalar nada más. El instalador se encarga de todo
+        y se actualiza solo.
+      </p>
+      <p>
+        También puedes descargar la
+        <a href="https://claude.ai/download" target="_blank" rel="noopener noreferrer">app de escritorio</a>
+        si prefieres no usar la terminal.
+      </p>
+
+      <h3>3. Lanza Claude Code</h3>
+      <p>
+        Crea una carpeta para tu proyecto, entra en ella y lanza Claude:
+      </p>
+      <div class="prompt-box">
+        <span>mkdir mi-proyecto && cd mi-proyecto && claude</span>
+        <button class="copy-btn" aria-label="Copiar al portapapeles">
+          <Icon name="lucide:clipboard" class="icon-copy" size={16} />
+          <Icon name="lucide:check" class="icon-check" size={16} />
+        </button>
+      </div>
+      <p>
+        Ya estás dentro. Pídele lo que quieras construir.
+      </p>
+
+      <h3>4. Plan gratuito vs Pro</h3>
+      <p>
+        Claude Code necesita una API key o una suscripción a
+        <a href="https://claude.ai/upgrade" target="_blank" rel="noopener noreferrer">Claude Pro</a> ($20/mes).
+      </p>
+      <p>
+        Si estás empezando, prueba primero el
+        <a href="#facil">camino fácil con Claude.ai</a>.
+        Cuando sientas que necesitas más, da el salto a Claude Code.
+      </p>
+    </section>
+
+    <section class="next-steps">
+      <h2>Comparte lo que crees</h2>
+      <p>
+        Lo más importante de construir es compartirlo.
+        Únete al grupo, enseña lo que has hecho y aprende de lo que hacen otros.
+      </p>
+      <a
+        href="https://t.me/+A5T31bBM-aw4ODJk"
+        class="cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Unirte al grupo de Telegram
+      </a>
+      <p class="note" style="margin-top: 16px;">
+        Gratis. Sin spam. Solo gente que quiere crear.
+      </p>
+      <p style="margin-top: 24px;">
+        Cada semana hacemos una sesión en vivo donde construimos juntos.
+        Si te has perdido alguna, aquí puedes reservar plaza para la próxima.
+      </p>
+      <a href="https://luma.com/user/usr-cOAaSul0mx5RPT1" class="link-arrow" target="_blank" rel="noopener noreferrer">Ver todas las sesiones &rarr;</a>
+    </section>
+
+    <footer>
+      <p>
+        <a href="/">shipit</a> ·
+        <a
+          href="https://linkedin.com/in/dan-jimenez-dev"
+          target="_blank"
+          rel="noopener noreferrer">LinkedIn</a
+        > ·
+        <a
+          href="https://instagram.com/thales.me"
+          target="_blank"
+          rel="noopener noreferrer">Instagram</a
+        >
+      </p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  /* Nav */
+  nav {
+    margin-bottom: 48px;
+  }
+
+  .back {
+    font-size: 0.875rem;
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back:hover {
+    color: #111111;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 32px;
+  }
+
+  .wordmark {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 48px;
+  }
+
+  section p {
+    color: #444444;
+    margin-bottom: 16px;
+  }
+
+  section p:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111111;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #111111;
+  }
+
+  a {
+    color: #111111;
+  }
+
+  code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  /* Path cards */
+  .paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .path-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .path-card:hover {
+    border-color: #111111;
+  }
+
+  .path-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999999;
+    margin-bottom: 4px;
+  }
+
+  .path-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 8px;
+  }
+
+  .path-desc {
+    font-size: 0.9rem;
+    color: #444444;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  .path-tag {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #111111;
+    background: #f5f5f5;
+    padding: 4px 10px;
+    border-radius: 100px;
+    align-self: flex-start;
+  }
+
+  /* Prompt box */
+  .prompt-box {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    background: #111111;
+    color: #e5e5e5;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 12px 0 16px;
+    overflow-x: auto;
+  }
+
+  .prompt-box span {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .copy-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #666666;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .copy-btn:hover {
+    color: #ffffff;
+  }
+
+  .copy-btn .icon-check {
+    display: none;
+    color: #4ade80;
+  }
+
+  .copy-btn.copied .icon-copy {
+    display: none;
+  }
+
+  .copy-btn.copied .icon-check {
+    display: block;
+  }
+
+  /* CTA */
+  .cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 36px;
+    background: #111111;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta:hover {
+    opacity: 0.8;
+  }
+
+  .note {
+    font-size: 0.875rem;
+    color: #999999 !important;
+  }
+
+  .link-arrow {
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-arrow:hover {
+    opacity: 0.7;
+  }
+
+  /* Next steps */
+  .next-steps {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 40px;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+  }
+
+  footer p {
+    font-size: 0.875rem;
+    color: #999999;
+  }
+
+  footer a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  footer a:hover {
+    color: #111111;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    main {
+      padding: 48px 20px;
+    }
+
+    .paths {
+      grid-template-columns: 1fr;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.parentElement?.querySelector('span')?.textContent?.trim();
+      if (!text) return;
+      await navigator.clipboard.writeText(text);
+      btn.classList.add('copied');
+      setTimeout(() => btn.classList.remove('copied'), 2000);
+    });
+  });
+</script>
