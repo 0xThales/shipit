@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout
   title="Crea tu primer producto con IA en 30 minutos"
-  description="Ve nacer un producto real con IA en 30 minutos. Sin slides. Sin teoría. Gratis. Sábado 7 de marzo a las 10:30am."
+  description="Ve nacer un producto real con IA en 30 minutos. Sin slides. Sin teoría. Gratis. Cada sábado a las 10:30am."
 >
   <main>
     <header>
@@ -55,17 +55,54 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <section class="session">
-      <h2>Próxima sesión</h2>
-      <p class="session-date">Sábado 14 de marzo · 10:30am (Madrid, España)</p>
-      <a
-        href="https://luma.com/pbbczfc5"
-        class="cta"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Reservar plaza
-      </a>
-      <p class="note">Gratis. Plazas limitadas. Cada sábado.</p>
+      <h2>Próximas sesiones</h2>
+      <div class="session-list">
+        <div class="session-card past">
+          <span class="session-date">Sábado 7 de marzo · 10:30am</span>
+          <span class="session-cta">Completa</span>
+        </div>
+        <a
+          href="https://luma.com/pbbczfc5"
+          class="session-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-date="2026-03-14"
+        >
+          <span class="session-date">Sábado 14 de marzo · 10:30am</span>
+          <span class="session-cta">Reservar plaza</span>
+        </a>
+        <a
+          href="https://luma.com/61yua1se"
+          class="session-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-date="2026-03-21"
+        >
+          <span class="session-date">Sábado 21 de marzo · 10:30am</span>
+          <span class="session-cta">Reservar plaza</span>
+        </a>
+        <a
+          href="https://luma.com/ze8yzv54"
+          class="session-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-date="2026-03-28"
+        >
+          <span class="session-date">Sábado 28 de marzo · 10:30am</span>
+          <span class="session-cta">Reservar plaza</span>
+        </a>
+        <a
+          href="https://luma.com/3k4dlgkc"
+          class="session-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-date="2026-04-04"
+        >
+          <span class="session-date">Sábado 4 de abril · 10:30am</span>
+          <span class="session-cta">Reservar plaza</span>
+        </a>
+      </div>
+      <p class="note">Gratis. Plazas limitadas. Cada sábado. Hora de Madrid, España.</p>
     </section>
 
     <section>
@@ -173,28 +210,58 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: 20px;
   }
 
-  /* Session CTA */
+  /* Session cards */
+  .session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .session-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .session-card:hover {
+    border-color: #111111;
+  }
+
+  .session-card.past {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .session-card.past .session-cta {
+    background: #e5e5e5;
+    color: #999999;
+  }
+
+  .session-card.past .session-cta::after {
+    content: none;
+  }
+
   .session-date {
     font-weight: 500;
-    color: #111111 !important;
-    font-size: 1.05rem;
+    color: #111111;
+    font-size: 1rem;
   }
 
-  .cta {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 14px 36px;
+  .session-cta {
+    flex-shrink: 0;
+    padding: 8px 20px;
     background: #111111;
     color: #ffffff;
-    text-decoration: none;
     border-radius: 100px;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    transition: opacity 0.2s ease;
-  }
-
-  .cta:hover {
-    opacity: 0.8;
+    white-space: nowrap;
+    margin-left: 16px;
   }
 
   .note {
@@ -236,5 +303,28 @@ import Layout from "../layouts/Layout.astro";
     section {
       margin-bottom: 32px;
     }
+
+    .session-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .session-cta {
+      margin-left: 0;
+    }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.session-card').forEach(card => {
+    const dateStr = card.getAttribute('data-date');
+    if (!dateStr) return;
+    const eventEnd = new Date(dateStr + 'T11:30:00+01:00');
+    if (new Date() > eventEnd) {
+      card.classList.add('past');
+      const cta = card.querySelector('.session-cta');
+      if (cta) cta.textContent = 'Pasada';
+    }
+  });
+</script>
