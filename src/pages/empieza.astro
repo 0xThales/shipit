@@ -37,6 +37,7 @@ import { Icon } from "astro-icon/components";
 
       <div class="paths">
         <a href="#facil" class="path-card">
+          <Icon name="claude" class="path-logo" size={28} />
           <span class="path-label">Camino fácil</span>
           <span class="path-title">Claude.ai</span>
           <span class="path-desc">
@@ -46,6 +47,7 @@ import { Icon } from "astro-icon/components";
         </a>
 
         <a href="#pro" class="path-card">
+          <Icon name="claude" class="path-logo" size={28} />
           <span class="path-label">Camino pro</span>
           <span class="path-title">Claude Code</span>
           <span class="path-desc">
@@ -317,6 +319,10 @@ import { Icon } from "astro-icon/components";
 
   .path-card:hover {
     border-color: #111111;
+  }
+
+  .path-logo {
+    margin-bottom: 12px;
   }
 
   .path-label {
