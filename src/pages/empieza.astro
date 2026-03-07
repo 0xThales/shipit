@@ -80,18 +80,22 @@ import { Icon } from "astro-icon/components";
       </p>
       <div class="alt-options">
         <a href="https://www.antigravity.google/" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <Icon name="antigravity" class="alt-icon" size={24} />
           <span class="alt-name">Google Antigravity</span>
           <span class="alt-desc">El IDE de Google con IA. Gratis en preview.</span>
         </a>
         <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <Icon name="cursor" class="alt-icon" size={24} />
           <span class="alt-name">Cursor</span>
           <span class="alt-desc">Editor de código con IA integrada. Tiene plan gratuito.</span>
         </a>
         <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <Icon name="replit" class="alt-icon" size={24} />
           <span class="alt-name">Replit</span>
           <span class="alt-desc">Escribe, ejecuta y despliega desde el navegador.</span>
         </a>
         <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <img src="/icons/lovable.svg" class="alt-icon" width="24" height="24" alt="Lovable" />
           <span class="alt-name">Lovable</span>
           <span class="alt-desc">Describe tu app y te la construye. Créditos gratis para empezar.</span>
         </a>
@@ -370,6 +374,10 @@ import { Icon } from "astro-icon/components";
 
   .alt-card:hover {
     border-color: #111111;
+  }
+
+  .alt-icon {
+    margin-bottom: 10px;
   }
 
   .alt-name {
