@@ -6,6 +6,10 @@ import Layout from "../layouts/Layout.astro";
   title="Crea tu primer producto con IA en 30 minutos"
   description="Ve nacer un producto real con IA en 30 minutos. Sin slides. Sin teoría. Gratis. Cada sábado a las 10:30am."
 >
+  <nav>
+    <a href="/empieza">Empieza #fácil</a>
+  </nav>
+
   <main>
     <header>
       <p class="wordmark">Crea tu primer producto con IA en 30 minutos</p>
@@ -136,6 +140,32 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 24px;
+    z-index: 10;
+  }
+
+  nav a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 100px;
+    transition: border-color 0.2s ease;
+  }
+
+  nav a:hover {
+    border-color: #111111;
+  }
+
   main {
     max-width: 640px;
     margin: 0 auto;
