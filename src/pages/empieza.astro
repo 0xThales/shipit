@@ -73,6 +73,29 @@ import { Icon } from "astro-icon/components";
         El plan gratuito tiene un número limitado de mensajes al día.
         Para la mayoría de personas que están empezando, es más que suficiente.
       </p>
+
+      <h3>3. Otras opciones</h3>
+      <p>
+        Hay otras herramientas que también te permiten crear desde el navegador con créditos gratuitos:
+      </p>
+      <div class="alt-options">
+        <a href="https://www.antigravity.google/" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <span class="alt-name">Google Antigravity</span>
+          <span class="alt-desc">El IDE de Google con IA. Gratis en preview.</span>
+        </a>
+        <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <span class="alt-name">Cursor</span>
+          <span class="alt-desc">Editor de código con IA integrada. Tiene plan gratuito.</span>
+        </a>
+        <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <span class="alt-name">Replit</span>
+          <span class="alt-desc">Escribe, ejecuta y despliega desde el navegador.</span>
+        </a>
+        <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" class="alt-card">
+          <span class="alt-name">Lovable</span>
+          <span class="alt-desc">Describe tu app y te la construye. Créditos gratis para empezar.</span>
+        </a>
+      </div>
     </section>
 
     <section id="pro">
@@ -327,6 +350,41 @@ import { Icon } from "astro-icon/components";
     align-self: flex-start;
   }
 
+  /* Alt options */
+  .alt-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .alt-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .alt-card:hover {
+    border-color: #111111;
+  }
+
+  .alt-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 4px;
+  }
+
+  .alt-desc {
+    font-size: 0.8rem;
+    color: #666666;
+    line-height: 1.4;
+  }
+
   /* Prompt box */
   .prompt-box {
     position: relative;
@@ -447,6 +505,10 @@ import { Icon } from "astro-icon/components";
     }
 
     .paths {
+      grid-template-columns: 1fr;
+    }
+
+    .alt-options {
       grid-template-columns: 1fr;
     }
 
