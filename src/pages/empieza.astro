@@ -7,10 +7,15 @@ import { Icon } from "astro-icon/components";
   title="Empieza a crear con IA"
   description="Todo lo que necesitas para construir tu primer producto con IA. Desde cero, paso a paso."
 >
+  <nav>
+    <a href="/" class="back">&larr; shipit</a>
+    <div class="nav-links">
+      <a href="/empieza" class={Astro.url.pathname.startsWith('/empieza') ? 'active' : ''}>Empieza</a>
+      <a href="/unfuckme" class={Astro.url.pathname.startsWith('/unfuckme') ? 'active' : ''}>Unfuckme</a>
+    </div>
+  </nav>
+
   <main>
-    <nav>
-      <a href="/" class="back">&larr; shipit</a>
-    </nav>
 
     <header>
       <p class="wordmark">Empieza a crear</p>
@@ -234,7 +239,12 @@ import { Icon } from "astro-icon/components";
 
   /* Nav */
   nav {
-    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .back {
@@ -246,6 +256,28 @@ import { Icon } from "astro-icon/components";
 
   .back:hover {
     color: #111111;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: border-color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    border-bottom-color: #111111;
+  }
+
+  .nav-links a.active {
+    border-bottom-color: #111111;
   }
 
   /* Header */

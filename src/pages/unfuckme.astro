@@ -1,0 +1,292 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Unfuckme — Auditoría vital con IA"
+  description="Deja de mentirte. Una sesión de 10 minutos con IA que corta la autocompasión y te muestra quién eres realmente."
+>
+  <nav>
+    <a href="/" class="back">&larr; shipit</a>
+    <div class="nav-links">
+      <a href="/empieza" class={Astro.url.pathname.startsWith('/empieza') ? 'active' : ''}>Empieza</a>
+      <a href="/unfuckme" class={Astro.url.pathname.startsWith('/unfuckme') ? 'active' : ''}>Unfuckme</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <header>
+      <p class="wordmark">Unfuckme</p>
+    </header>
+
+    <section>
+      <p>
+        La gente se miente a sí misma. No por maldad — por protección.
+        "Soy vago", "no tengo intereses", "no hago nada con mi vida".
+        No son verdades. Son escudos.
+      </p>
+      <p>
+        Y cuando alguien se sienta con una IA a pedir ayuda,
+        le da esos mismos escudos. Y la IA, educadamente, trabaja con mentiras.
+      </p>
+      <p>
+        Unfuckme es diferente. Es una conversación de 10 minutos que
+        <strong>no te deja esconderte</strong>. Detecta contradicciones,
+        te confronta con lo que realmente haces (no lo que dices que haces),
+        y te devuelve un retrato honesto de quién eres.
+      </p>
+    </section>
+
+    <section>
+      <h2>Cómo funciona</h2>
+
+      <h3>1. Cuéntame tu historia <span class="phase-time">2 min</span></h3>
+      <p>
+        Hablas libremente. Presentas tu versión: "estoy perdido, no sé qué quiero".
+        La IA escucha y toma nota. No te da la razón.
+      </p>
+
+      <h3>2. Lo que realmente veo <span class="phase-time">3 min</span></h3>
+      <p>
+        Aquí pasa la magia. La IA coge lo que has dicho y te muestra las contradicciones.
+        "Dices que no haces nada, pero llevas tres meses investigando negocios los fines de semana.
+        Eso no es vago. Eso es energía emprendedora sin canalizar."
+      </p>
+
+      <h3>3. Las preguntas incómodas <span class="phase-time">3 min</span></h3>
+      <p>
+        Preguntas directas, específicas, que no puedes contestar con piloto automático.
+        ¿A quién envidias? ¿Qué has dejado a medias y por qué de verdad?
+        ¿Qué vería si miro tu tiempo de pantalla ahora mismo?
+      </p>
+
+      <h3>4. Quién eres de verdad <span class="phase-time">2 min</span></h3>
+      <p>
+        Todo se sintetiza en un retrato claro: tus fortalezas reales,
+        lo que te bloquea, hacia dónde apuntar, y una cosa concreta
+        para hacer esta semana.
+      </p>
+    </section>
+
+    <section>
+      <h2>Qué NO es esto</h2>
+      <ul>
+        <li>No es terapia. No sustituye ayuda profesional.</li>
+        <li>No es un chatbot que te dice lo que quieres oír.</li>
+        <li>No es autoayuda genérica. Todo es específico para ti.</li>
+      </ul>
+    </section>
+
+    <section class="next-steps">
+      <h2>Pruébalo</h2>
+      <p>
+        Una sesión de 10 minutos. Gratis. Solo necesitas honestidad.
+      </p>
+      <!-- TODO: Replace with actual Claude Project URL -->
+      <a
+        href="https://claude.ai/project/019ccf62-9e23-7693-b229-06fe0db61bb8"
+        class="cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Empezar sesión
+      </a>
+      <p class="note" style="margin-top: 16px;">
+        Es un espejo que no te deja mentirte.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        <a href="/">shipit</a> ·
+        <a
+          href="https://linkedin.com/in/dan-jimenez-dev"
+          target="_blank"
+          rel="noopener noreferrer">LinkedIn</a
+        > ·
+        <a
+          href="https://instagram.com/thales.me"
+          target="_blank"
+          rel="noopener noreferrer">Instagram</a
+        >
+      </p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  /* Nav */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .back {
+    font-size: 0.875rem;
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back:hover {
+    color: #111111;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: border-color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    border-bottom-color: #111111;
+  }
+
+  .nav-links a.active {
+    border-bottom-color: #111111;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 32px;
+  }
+
+  .wordmark {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 48px;
+  }
+
+  section p {
+    color: #444444;
+    margin-bottom: 16px;
+  }
+
+  section p:last-child {
+    margin-bottom: 0;
+  }
+
+  section p strong {
+    color: #111111;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111111;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #111111;
+  }
+
+  .phase-time {
+    font-weight: 400;
+    color: #999999;
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: #111111;
+  }
+
+  /* List */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    color: #444444;
+    padding: 6px 0;
+  }
+
+  /* CTA */
+  .cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 36px;
+    background: #111111;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta:hover {
+    opacity: 0.8;
+  }
+
+  .note {
+    font-size: 0.875rem;
+    color: #999999 !important;
+  }
+
+  /* Next steps */
+  .next-steps {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 40px;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+  }
+
+  footer p {
+    font-size: 0.875rem;
+    color: #999999;
+  }
+
+  footer a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  footer a:hover {
+    color: #111111;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    main {
+      padding: 48px 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+  }
+</style>

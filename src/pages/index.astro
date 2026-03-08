@@ -8,6 +8,7 @@ import Layout from "../layouts/Layout.astro";
 >
   <nav>
     <a href="/empieza">Empieza</a>
+    <a href="/unfuckme">Unfuckme</a>
   </nav>
 
   <main>
@@ -143,6 +144,7 @@ import Layout from "../layouts/Layout.astro";
   nav {
     display: flex;
     justify-content: flex-end;
+    gap: 24px;
     padding: 20px 24px;
     max-width: 640px;
     margin: 0 auto;
@@ -153,14 +155,12 @@ import Layout from "../layouts/Layout.astro";
     font-weight: 500;
     color: #111111;
     text-decoration: none;
-    padding: 8px 16px;
-    border: 1px solid #e5e5e5;
-    border-radius: 100px;
+    border-bottom: 1px solid #e5e5e5;
     transition: border-color 0.2s ease;
   }
 
   nav a:hover {
-    border-color: #111111;
+    border-bottom-color: #111111;
   }
 
   main {
