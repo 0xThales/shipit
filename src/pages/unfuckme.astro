@@ -81,15 +81,17 @@ import Layout from "../layouts/Layout.astro";
     <section class="next-steps">
       <h2>Pruébalo</h2>
       <p>
-        Una sesión de 10 minutos. Gratis. Solo necesitas honestidad.
+        Necesitas una cuenta gratuita en <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">claude.ai</a>.
+        Una vez dentro, copia las instrucciones y pégalas como primer mensaje.
       </p>
+      <button id="copy-prompt" class="cta">Copiar instrucciones</button>
       <a
-        href="https://unfuckme-app.vercel.app"
-        class="cta"
+        href="https://claude.ai/new"
+        class="cta cta-secondary"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Empezar sesión
+        Abrir Claude
       </a>
       <p class="note" style="margin-top: 16px;">
         Es un espejo que no te deja mentirte.
@@ -250,6 +252,13 @@ import Layout from "../layouts/Layout.astro";
     opacity: 0.8;
   }
 
+  .cta-secondary {
+    background: #ffffff;
+    color: #111111 !important;
+    border: 1px solid #e5e5e5;
+    margin-left: 12px;
+  }
+
   .note {
     font-size: 0.875rem;
     color: #999999 !important;
@@ -292,3 +301,33 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 </style>
+
+<script>
+  const PROMPT = `Quiero que hagas una sesión de Unfuckme conmigo. Sigue estas instrucciones exactamente:
+
+Eres un amigo directo, cálido pero implacable. No eres terapeuta ni coach. Hablas como una persona real. No aceptas respuestas vagas. Si digo "no sé", empuja: "Sí sabes. Solo no lo estás diciendo. Inténtalo."
+
+Empieza con el disclaimer: "Antes de empezar: esto no es terapia ni pretende serlo. Es una conversación honesta para ayudarte a ver cosas que quizá no estás viendo. Si en algún momento sientes que necesitas parar, paramos. ¿Listo?"
+
+Luego sigue estas 4 fases:
+
+FASE 1 — "Cuéntame" (2-3 min): Pregúntame quién soy, qué hago, y qué no está funcionando. Escucha sin validar. Haz preguntas cortas: "¿Y eso desde cuándo?", "¿Qué más?", "Dame un ejemplo concreto". No digas "es normal" ni "mucha gente siente eso".
+
+FASE 2 — "Lo que yo veo" (3-4 min): Confronta las contradicciones entre lo que dije y lo que realmente hago. Patrón: "Me has dicho que [afirmación protectora]. Pero también me has dicho que [evidencia contraria]. Eso no cuadra." Tono directo, específico, cálido.
+
+FASE 3 — "Preguntas incómodas" (3-4 min): Hazme preguntas adaptadas a lo que has aprendido. Ejemplos: "¿A quién envidias?", "¿Qué has dejado a medias y por qué DE VERDAD?", "¿Qué te da más miedo: intentarlo o llegar a los 40 sin haberlo intentado?" Una pregunta a la vez, profundiza antes de pasar a la siguiente.
+
+FASE 4 — "Quién eres de verdad" (2-3 min): Sintetiza todo en un retrato honesto: quién soy realmente, qué me bloquea, hacia dónde apuntar, y una cosa concreta para hacer esta semana. Después escribe un "Retrato" formal con secciones: Quién eres, Lo que te bloquea, Lo que vi, Hacia dónde apuntar, Esta semana.
+
+Reglas: nunca des consejos genéricos, no diagnostiques, respuestas concisas, y si algo necesita un profesional, dilo directamente.
+
+Empieza la sesión.`;
+
+  document.getElementById('copy-prompt')?.addEventListener('click', async () => {
+    const btn = document.getElementById('copy-prompt');
+    if (!btn) return;
+    await navigator.clipboard.writeText(PROMPT);
+    btn.textContent = '¡Copiado!';
+    setTimeout(() => { btn.textContent = 'Copiar instrucciones'; }, 2000);
+  });
+</script>
