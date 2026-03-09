@@ -411,7 +411,8 @@ import Layout from "../layouts/Layout.astro";
     chat.style.display = 'flex';
     input.disabled = false;
     sendBtn.disabled = false;
-    // Trigger first assistant message
+    // Send hidden kickoff message to trigger Claude's opening
+    conversation.push({ role: 'user', content: 'Empieza la sesión.' });
     sendToAPI();
   }
 
