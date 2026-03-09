@@ -14,8 +14,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </nav>
 
-  <!-- Landing -->
-  <main id="landing">
+  <main>
 
     <header>
       <p class="wordmark">Unfuckme</p>
@@ -84,7 +83,14 @@ import Layout from "../layouts/Layout.astro";
       <p>
         Una sesión de 10 minutos. Gratis. Solo necesitas honestidad.
       </p>
-      <button id="start-btn" class="cta">Empezar sesión</button>
+      <a
+        href="https://unfuckme-app.vercel.app"
+        class="cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Empezar sesión
+      </a>
       <p class="note" style="margin-top: 16px;">
         Es un espejo que no te deja mentirte.
       </p>
@@ -106,15 +112,6 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </footer>
   </main>
-
-  <!-- Chat -->
-  <div id="chat" class="chat-container" style="display: none;">
-    <div id="messages" class="messages"></div>
-    <div class="input-bar">
-      <textarea id="input" rows="1" placeholder="Escribe aquí..." disabled></textarea>
-      <button id="send-btn" disabled>Enviar</button>
-    </div>
-  </div>
 </Layout>
 
 <style>
@@ -284,99 +281,6 @@ import Layout from "../layouts/Layout.astro";
     color: #111111;
   }
 
-  /* Chat */
-  .chat-container {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 70px);
-  }
-
-  .messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 24px 0;
-  }
-
-  .msg {
-    margin-bottom: 20px;
-    line-height: 1.75;
-  }
-
-  .msg-user {
-    background: #f5f5f5;
-    padding: 12px 16px;
-    border-radius: 12px;
-    color: #111111;
-  }
-
-  .msg-assistant {
-    color: #444444;
-    padding: 4px 0;
-  }
-
-  .msg-assistant strong {
-    color: #111111;
-  }
-
-  .msg-error {
-    color: #cc0000;
-    font-size: 0.875rem;
-    padding: 12px 0;
-  }
-
-  .input-bar {
-    display: flex;
-    gap: 12px;
-    padding: 16px 0;
-    padding-bottom: max(16px, env(safe-area-inset-bottom));
-    border-top: 1px solid #e5e5e5;
-    align-items: flex-end;
-  }
-
-  .input-bar textarea {
-    flex: 1;
-    padding: 12px 16px;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    font-family: inherit;
-    font-size: 1rem;
-    line-height: 1.5;
-    resize: none;
-    outline: none;
-    max-height: 120px;
-    transition: border-color 0.2s ease;
-  }
-
-  .input-bar textarea:focus {
-    border-color: #111111;
-  }
-
-  .input-bar button {
-    padding: 12px 24px;
-    background: #111111;
-    color: #ffffff;
-    border: none;
-    border-radius: 100px;
-    font-family: inherit;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .input-bar button:hover:not(:disabled) {
-    opacity: 0.8;
-  }
-
-  .input-bar button:disabled {
-    opacity: 0.4;
-    cursor: default;
-  }
-
   /* Mobile */
   @media (max-width: 600px) {
     main {
@@ -386,143 +290,5 @@ import Layout from "../layouts/Layout.astro";
     section {
       margin-bottom: 40px;
     }
-
-    .chat-container {
-      padding: 0 20px;
-    }
   }
 </style>
-
-<script>
-  const landing = document.getElementById('landing')!;
-  const chat = document.getElementById('chat')!;
-  const messages = document.getElementById('messages')!;
-  const input = document.getElementById('input') as HTMLTextAreaElement;
-  const sendBtn = document.getElementById('send-btn') as HTMLButtonElement;
-  const startBtn = document.getElementById('start-btn')!;
-
-  const conversation: Array<{ role: string; content: string }> = [];
-  let streaming = false;
-
-  startBtn.addEventListener('click', startSession);
-
-  function startSession() {
-    landing.style.display = 'none';
-    chat.style.display = 'flex';
-    input.disabled = false;
-    sendBtn.disabled = false;
-    // Send hidden kickoff message to trigger Claude's opening
-    conversation.push({ role: 'user', content: 'Empieza la sesión.' });
-    sendToAPI();
-  }
-
-  input.addEventListener('input', () => {
-    input.style.height = 'auto';
-    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
-  });
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      send();
-    }
-  });
-
-  sendBtn.addEventListener('click', send);
-
-  function send() {
-    const text = input.value.trim();
-    if (!text || streaming) return;
-    conversation.push({ role: 'user', content: text });
-    appendMessage('user', text);
-    input.value = '';
-    input.style.height = 'auto';
-    sendToAPI();
-  }
-
-  function appendMessage(role: string, text: string) {
-    const div = document.createElement('div');
-    div.className = `msg msg-${role}`;
-    if (role === 'user') {
-      div.textContent = text;
-    }
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-    return div;
-  }
-
-  async function sendToAPI() {
-    streaming = true;
-    input.disabled = true;
-    sendBtn.disabled = true;
-
-    const msgDiv = appendMessage('assistant', '');
-
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: conversation }),
-      });
-
-      if (res.status === 429) {
-        msgDiv.className = 'msg msg-error';
-        msgDiv.textContent = 'Ya has tenido tu sesión hoy. Vuelve mañana.';
-        return;
-      }
-
-      if (!res.ok || !res.body) {
-        msgDiv.className = 'msg msg-error';
-        msgDiv.textContent = 'Algo ha fallado. Inténtalo de nuevo.';
-        return;
-      }
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let fullText = '';
-      let buffer = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
-
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6);
-          if (data === '[DONE]') break;
-          try {
-            const parsed = JSON.parse(data);
-            if (parsed.text) {
-              fullText += parsed.text;
-              msgDiv.innerHTML = formatText(fullText);
-              messages.scrollTop = messages.scrollHeight;
-            }
-          } catch {}
-        }
-      }
-
-      conversation.push({ role: 'assistant', content: fullText });
-    } catch {
-      msgDiv.className = 'msg msg-error';
-      msgDiv.textContent = 'Error de conexión. Inténtalo de nuevo.';
-    } finally {
-      streaming = false;
-      input.disabled = false;
-      sendBtn.disabled = false;
-      input.focus();
-    }
-  }
-
-  function formatText(text: string) {
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\n/g, '<br>');
-  }
-</script>
