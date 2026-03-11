@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title: string;
   description: string;
@@ -25,6 +27,7 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />

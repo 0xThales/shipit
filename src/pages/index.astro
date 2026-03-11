@@ -61,53 +61,58 @@ import Layout from "../layouts/Layout.astro";
 
     <section class="session">
       <h2>Próximas sesiones</h2>
-      <div class="session-list">
-        <div class="session-card past">
-          <span class="session-date">Sábado 7 de marzo · 10:30am</span>
-          <span class="session-cta">Completa</span>
-        </div>
-        <a
-          href="https://luma.com/pbbczfc5"
-          class="session-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-date="2026-03-14"
-        >
-          <span class="session-date">Sábado 14 de marzo · 10:30am</span>
-          <span class="session-cta">Reservar plaza</span>
+      <table class="session-table">
+        <tbody>
+          <tr class="past">
+            <td class="session-date">7 mar</td>
+            <td class="session-day">Sábado · 10:30am</td>
+            <td class="session-status"><span class="badge badge-past">Completa</span></td>
+          </tr>
+          <tr data-date="2026-03-14">
+            <td class="session-date">14 mar</td>
+            <td class="session-day">Sábado · 10:30am</td>
+            <td class="session-status"><a href="https://luma.com/pbbczfc5" class="badge badge-open" target="_blank" rel="noopener noreferrer">Reservar &rarr;</a></td>
+          </tr>
+          <tr data-date="2026-03-28">
+            <td class="session-date">28 mar</td>
+            <td class="session-day">Sábado · 10:30am</td>
+            <td class="session-status"><a href="https://luma.com/ze8yzv54" class="badge badge-open" target="_blank" rel="noopener noreferrer">Reservar &rarr;</a></td>
+          </tr>
+          <tr data-date="2026-04-04">
+            <td class="session-date">4 abr</td>
+            <td class="session-day">Sábado · 10:30am</td>
+            <td class="session-status"><a href="https://luma.com/3k4dlgkc" class="badge badge-open" target="_blank" rel="noopener noreferrer">Reservar &rarr;</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Gratis. Plazas limitadas. Cada sábado. Hora de Madrid, España.</p>
+    </section>
+
+    <section class="projects">
+      <h2>Lo que se construye dentro</h2>
+      <p>Estos son proyectos reales construidos por miembros de la comunidad. La mayoría no sabía programar hace unos meses.</p>
+      <div class="projects-grid">
+        <a class="project-card" href="https://app.victhechefcocina.com" target="_blank" rel="noopener noreferrer">
+          <img src="/shipitprojects/lavaplatos.png" alt="VicTheChef" loading="lazy" />
+          <span class="project-name">VicTheChef</span>
+          <span class="project-desc">App de retos de cocina</span>
         </a>
-        <a
-          href="https://luma.com/61yua1se"
-          class="session-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-date="2026-03-21"
-        >
-          <span class="session-date">Sábado 21 de marzo · 10:30am</span>
-          <span class="session-cta">Reservar plaza</span>
+        <a class="project-card" href="https://aleamg.com" target="_blank" rel="noopener noreferrer">
+          <img src="/shipitprojects/amg-designer.png" alt="Portfolio AMG" loading="lazy" />
+          <span class="project-name">Portfolio AMG</span>
+          <span class="project-desc">Portfolio de product designer</span>
         </a>
-        <a
-          href="https://luma.com/ze8yzv54"
-          class="session-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-date="2026-03-28"
-        >
-          <span class="session-date">Sábado 28 de marzo · 10:30am</span>
-          <span class="session-cta">Reservar plaza</span>
+        <a class="project-card" href="https://5minutejournal.vercel.app" target="_blank" rel="noopener noreferrer">
+          <img src="/shipitprojects/diario.png" alt="5 Minute Journal" loading="lazy" />
+          <span class="project-name">5 Minute Journal</span>
+          <span class="project-desc">Journaling diario con reflexiones</span>
         </a>
-        <a
-          href="https://luma.com/3k4dlgkc"
-          class="session-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-date="2026-04-04"
-        >
-          <span class="session-date">Sábado 4 de abril · 10:30am</span>
-          <span class="session-cta">Reservar plaza</span>
+        <a class="project-card" href="https://flamme-five.vercel.app" target="_blank" rel="noopener noreferrer">
+          <img src="/shipitprojects/cards-speak.png" alt="Flame Five" loading="lazy" />
+          <span class="project-name">Flame Five</span>
+          <span class="project-desc">Lecturas de tarot con IA</span>
         </a>
       </div>
-      <p class="note">Gratis. Plazas limitadas. Cada sábado. Hora de Madrid, España.</p>
     </section>
 
     <section>
@@ -237,58 +242,160 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: 20px;
   }
 
-  /* Session cards */
-  .session-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  /* Projects grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  .session-card {
+  .project-card {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
+    text-decoration: none;
+    color: inherit;
+    flex-direction: column;
     border: 1px solid #e5e5e5;
     border-radius: 12px;
-    text-decoration: none;
-    transition: border-color 0.2s ease, opacity 0.2s ease;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .session-card:hover {
-    border-color: #111111;
+  .project-card:hover {
+    border-color: #ccc;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
 
-  .session-card.past {
-    opacity: 0.4;
-    pointer-events: none;
+  .project-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top;
+    display: block;
   }
 
-  .session-card.past .session-cta {
-    background: #e5e5e5;
-    color: #999999;
+  .project-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111;
+    padding: 12px 14px 2px;
   }
 
-  .session-card.past .session-cta::after {
-    content: none;
+  .project-desc {
+    font-size: 0.8rem;
+    color: #999;
+    padding: 0 14px 12px;
+  }
+
+  @media (max-width: 600px) {
+    .projects {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+
+    .projects h2,
+    .projects > p {
+      padding: 0 20px;
+    }
+
+    .projects-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 12px;
+      padding: 0 20px;
+    }
+
+    .projects-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-card {
+      flex-shrink: 0;
+      width: 200px;
+      scroll-snap-align: start;
+    }
+
+    .project-name {
+      font-size: 0.8rem;
+      padding: 10px 10px 2px;
+    }
+
+    .project-desc {
+      font-size: 0.75rem;
+      padding: 0 10px 10px;
+    }
+  }
+
+  /* Session table */
+  .session-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .session-table tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s ease;
+  }
+
+  .session-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .session-table tr:not(.past):hover {
+    background: #fafafa;
+  }
+
+  .session-table tr.past {
+    opacity: 0.35;
+  }
+
+  .session-table td {
+    padding: 12px 0;
+    vertical-align: middle;
   }
 
   .session-date {
-    font-weight: 500;
-    color: #111111;
-    font-size: 1rem;
+    font-weight: 600;
+    color: #111;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    width: 60px;
   }
 
-  .session-cta {
-    flex-shrink: 0;
-    padding: 8px 20px;
-    background: #111111;
-    color: #ffffff;
-    border-radius: 100px;
+  .session-day {
+    color: #666;
     font-size: 0.875rem;
+  }
+
+  .session-status {
+    text-align: right;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.8rem;
     font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    text-decoration: none;
     white-space: nowrap;
-    margin-left: 16px;
+  }
+
+  .badge-past {
+    background: #f0f0f0;
+    color: #999;
+  }
+
+  .badge-open {
+    background: #111;
+    color: #fff;
+    transition: background 0.15s ease;
+  }
+
+  .badge-open:hover {
+    background: #333;
   }
 
   .note {
@@ -331,27 +438,35 @@ import Layout from "../layouts/Layout.astro";
       margin-bottom: 32px;
     }
 
-    .session-card {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
+    .session-day {
+      display: none;
     }
 
-    .session-cta {
-      margin-left: 0;
+    .session-date {
+      font-size: 0.8rem;
     }
   }
 </style>
 
 <script>
-  document.querySelectorAll('.session-card').forEach(card => {
-    const dateStr = card.getAttribute('data-date');
+  document.querySelectorAll('.session-table tr[data-date]').forEach(row => {
+    const dateStr = row.getAttribute('data-date');
     if (!dateStr) return;
     const eventEnd = new Date(dateStr + 'T11:30:00+01:00');
     if (new Date() > eventEnd) {
-      card.classList.add('past');
-      const cta = card.querySelector('.session-cta');
-      if (cta) cta.textContent = 'Pasada';
+      row.classList.add('past');
+      const badge = row.querySelector('.badge');
+      if (badge) {
+        badge.classList.remove('badge-open');
+        badge.classList.add('badge-past');
+        badge.textContent = 'Pasada';
+        if (badge.tagName === 'A') {
+          const span = document.createElement('span');
+          span.className = badge.className;
+          span.textContent = badge.textContent;
+          badge.replaceWith(span);
+        }
+      }
     }
   });
 </script>
