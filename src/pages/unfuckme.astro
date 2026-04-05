@@ -135,13 +135,13 @@ import Layout from "../layouts/Layout.astro";
 
   .back {
     font-size: 0.875rem;
-    color: #999999;
+    color: #666;
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   .back:hover {
-    color: #111111;
+    color: #D97757;
   }
 
   .nav-links {
@@ -152,18 +152,20 @@ import Layout from "../layouts/Layout.astro";
   .nav-links a {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #111111;
+    color: #999;
     text-decoration: none;
-    border-bottom: 1px solid #e5e5e5;
-    transition: border-color 0.2s ease;
+    border-bottom: 1px solid #333;
+    transition: all 0.2s ease;
   }
 
   .nav-links a:hover {
-    border-bottom-color: #111111;
+    color: #eee;
+    border-bottom-color: #eee;
   }
 
   .nav-links a.active {
-    border-bottom-color: #111111;
+    color: #eee;
+    border-bottom-color: #D97757;
   }
 
   /* Header */
@@ -172,9 +174,11 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .wordmark {
+    font-family: 'Geist Sans', 'Geist', system-ui, sans-serif;
     font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
   }
 
   /* Sections */
@@ -183,7 +187,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   section p {
-    color: #444444;
+    color: #999;
     margin-bottom: 16px;
   }
 
@@ -192,14 +196,15 @@ import Layout from "../layouts/Layout.astro";
   }
 
   section p strong {
-    color: #111111;
+    color: #eee;
   }
 
   h2 {
+    font-family: 'Geist Sans', 'Geist', system-ui, sans-serif;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 16px;
-    color: #111111;
+    color: #fff;
   }
 
   h3 {
@@ -207,17 +212,22 @@ import Layout from "../layouts/Layout.astro";
     font-weight: 600;
     margin-top: 32px;
     margin-bottom: 12px;
-    color: #111111;
+    color: #eee;
   }
 
   .phase-time {
     font-weight: 400;
-    color: #999999;
+    color: #555;
     font-size: 0.875rem;
   }
 
   a {
-    color: #111111;
+    color: #D97757;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: #e8956f;
   }
 
   /* List */
@@ -227,8 +237,17 @@ import Layout from "../layouts/Layout.astro";
   }
 
   li {
-    color: #444444;
+    color: #999;
     padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #D97757;
   }
 
   /* CTA */
@@ -236,7 +255,7 @@ import Layout from "../layouts/Layout.astro";
     display: inline-block;
     margin-top: 20px;
     padding: 14px 36px;
-    background: #111111;
+    background: #D97757;
     color: #ffffff !important;
     text-decoration: none;
     border: none;
@@ -244,50 +263,57 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: background 0.2s ease;
     font-family: inherit;
   }
 
   .cta:hover {
-    opacity: 0.8;
+    background: #c4684b;
   }
 
   .cta-secondary {
-    background: #ffffff;
-    color: #111111 !important;
-    border: 1px solid #e5e5e5;
+    background: transparent;
+    color: #eee !important;
+    border: 1px solid #333;
     margin-left: 12px;
+  }
+
+  .cta-secondary:hover {
+    border-color: #D97757;
+    background: transparent;
   }
 
   .note {
     font-size: 0.875rem;
-    color: #999999 !important;
+    color: #555 !important;
   }
 
   /* Next steps */
   .next-steps {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #1a1a1a;
     padding-top: 40px;
   }
 
   /* Footer */
   footer {
     margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid #1a1a1a;
   }
 
   footer p {
     font-size: 0.875rem;
-    color: #999999;
+    color: #555;
   }
 
   footer a {
-    color: #999999;
+    color: #555 !important;
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   footer a:hover {
-    color: #111111;
+    color: #D97757 !important;
   }
 
   /* Mobile */
@@ -298,6 +324,11 @@ import Layout from "../layouts/Layout.astro";
 
     section {
       margin-bottom: 40px;
+    }
+
+    .cta-secondary {
+      margin-left: 0;
+      margin-top: 12px;
     }
   }
 </style>
