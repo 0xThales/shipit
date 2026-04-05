@@ -30,10 +30,16 @@ import Layout from "../layouts/Layout.astro";
       <p class="hero-sub">Sin slides. Sin teoría. Solo tú, Claude y un producto real.<br>Cada dos sábados a las 10:30am. Gratis.</p>
       <a href="#sesiones" class="hero-cta">Reserva tu plaza</a>
     </section>
+
+    <a href="#content" class="scroll-hint" aria-label="Scroll down">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M4 7l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </div>
 
   <!-- Content -->
-  <main>
+  <main id="content">
     <section>
       <p class="greeting">Hola,</p>
       <p>
@@ -349,6 +355,29 @@ import Layout from "../layouts/Layout.astro";
   @keyframes fadeRise {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll hint */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    animation: fadeRise 0.8s ease-out 0.8s forwards, bounce 2s ease-in-out 1.6s infinite;
+    opacity: 0;
+    transition: color 0.2s;
+  }
+
+  .scroll-hint:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
   }
 
   /* ===== MAIN CONTENT ===== */
