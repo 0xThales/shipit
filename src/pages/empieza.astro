@@ -249,13 +249,13 @@ import { Icon } from "astro-icon/components";
 
   .back {
     font-size: 0.875rem;
-    color: #999999;
+    color: #666;
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   .back:hover {
-    color: #111111;
+    color: #D97757;
   }
 
   .nav-links {
@@ -266,18 +266,20 @@ import { Icon } from "astro-icon/components";
   .nav-links a {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #111111;
+    color: #999;
     text-decoration: none;
-    border-bottom: 1px solid #e5e5e5;
-    transition: border-color 0.2s ease;
+    border-bottom: 1px solid #333;
+    transition: all 0.2s ease;
   }
 
   .nav-links a:hover {
-    border-bottom-color: #111111;
+    color: #eee;
+    border-bottom-color: #eee;
   }
 
   .nav-links a.active {
-    border-bottom-color: #111111;
+    color: #eee;
+    border-bottom-color: #D97757;
   }
 
   /* Header */
@@ -286,9 +288,11 @@ import { Icon } from "astro-icon/components";
   }
 
   .wordmark {
+    font-family: 'Geist Sans', 'Geist', system-ui, sans-serif;
     font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
   }
 
   /* Sections */
@@ -297,7 +301,7 @@ import { Icon } from "astro-icon/components";
   }
 
   section p {
-    color: #444444;
+    color: #999;
     margin-bottom: 16px;
   }
 
@@ -306,10 +310,11 @@ import { Icon } from "astro-icon/components";
   }
 
   h2 {
+    font-family: 'Geist Sans', 'Geist', system-ui, sans-serif;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 16px;
-    color: #111111;
+    color: #fff;
   }
 
   h3 {
@@ -317,15 +322,25 @@ import { Icon } from "astro-icon/components";
     font-weight: 600;
     margin-top: 32px;
     margin-bottom: 12px;
-    color: #111111;
+    color: #eee;
   }
 
   a {
-    color: #111111;
+    color: #D97757;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: #e8956f;
+  }
+
+  section p strong {
+    color: #eee;
   }
 
   code {
-    background: #f5f5f5;
+    background: #1a1a1a;
+    color: #D97757;
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.9em;
@@ -343,14 +358,15 @@ import { Icon } from "astro-icon/components";
     display: flex;
     flex-direction: column;
     padding: 24px;
-    border: 2px solid #e5e5e5;
+    border: 1px solid #222;
     border-radius: 12px;
     text-decoration: none;
     transition: border-color 0.2s ease;
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .path-card:hover {
-    border-color: #111111;
+    border-color: #D97757;
   }
 
   .path-logo {
@@ -362,20 +378,20 @@ import { Icon } from "astro-icon/components";
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #999999;
+    color: #666;
     margin-bottom: 4px;
   }
 
   .path-title {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #111111;
+    color: #fff;
     margin-bottom: 8px;
   }
 
   .path-desc {
     font-size: 0.9rem;
-    color: #444444;
+    color: #999;
     line-height: 1.5;
     flex-grow: 1;
   }
@@ -385,8 +401,9 @@ import { Icon } from "astro-icon/components";
     margin-top: 16px;
     font-size: 0.75rem;
     font-weight: 500;
-    color: #111111;
-    background: #f5f5f5;
+    color: #fff;
+    background: rgba(217, 119, 87, 0.15);
+    border: 1px solid rgba(217, 119, 87, 0.3);
     padding: 4px 10px;
     border-radius: 100px;
     align-self: flex-start;
@@ -404,14 +421,15 @@ import { Icon } from "astro-icon/components";
     display: flex;
     flex-direction: column;
     padding: 16px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #222;
     border-radius: 10px;
     text-decoration: none;
     transition: border-color 0.2s ease;
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .alt-card:hover {
-    border-color: #111111;
+    border-color: #444;
   }
 
   .alt-icon {
@@ -421,13 +439,13 @@ import { Icon } from "astro-icon/components";
   .alt-name {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #111111;
+    color: #eee;
     margin-bottom: 4px;
   }
 
   .alt-desc {
     font-size: 0.8rem;
-    color: #666666;
+    color: #666;
     line-height: 1.4;
   }
 
@@ -438,11 +456,12 @@ import { Icon } from "astro-icon/components";
     align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
-    background: #111111;
+    background: #1a1a1a;
     color: #e5e5e5;
     padding: 16px 20px;
     border-radius: 8px;
-    font-family: "SF Mono", "Fira Code", monospace;
+    border: 1px solid #222;
+    font-family: 'JetBrains Mono', "SF Mono", "Fira Code", monospace;
     font-size: 0.875rem;
     line-height: 1.6;
     margin: 12px 0 16px;
@@ -450,8 +469,8 @@ import { Icon } from "astro-icon/components";
   }
 
   .prompt-box ::selection {
-    background: #ffffff;
-    color: #111111;
+    background: #D97757;
+    color: #fff;
   }
 
   .prompt-box span {
@@ -463,7 +482,7 @@ import { Icon } from "astro-icon/components";
     flex-shrink: 0;
     background: none;
     border: none;
-    color: #666666;
+    color: #666;
     cursor: pointer;
     padding: 4px;
     border-radius: 4px;
@@ -474,7 +493,7 @@ import { Icon } from "astro-icon/components";
   }
 
   .copy-btn:hover {
-    color: #ffffff;
+    color: #D97757;
   }
 
   .copy-btn .icon-check {
@@ -495,58 +514,61 @@ import { Icon } from "astro-icon/components";
     display: inline-block;
     margin-top: 20px;
     padding: 14px 36px;
-    background: #111111;
+    background: #D97757;
     color: #ffffff !important;
     text-decoration: none;
     border-radius: 100px;
     font-size: 1rem;
     font-weight: 500;
-    transition: opacity 0.2s ease;
+    transition: background 0.2s ease;
   }
 
   .cta:hover {
-    opacity: 0.8;
+    background: #c4684b;
   }
 
   .note {
     font-size: 0.875rem;
-    color: #999999 !important;
+    color: #555 !important;
   }
 
   .link-arrow {
     font-weight: 500;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    color: #D97757;
+    transition: color 0.2s ease;
   }
 
   .link-arrow:hover {
-    opacity: 0.7;
+    color: #e8956f;
   }
 
   /* Next steps */
   .next-steps {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #1a1a1a;
     padding-top: 40px;
   }
 
   /* Footer */
   footer {
     margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid #1a1a1a;
   }
 
   footer p {
     font-size: 0.875rem;
-    color: #999999;
+    color: #555;
   }
 
   footer a {
-    color: #999999;
+    color: #555 !important;
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   footer a:hover {
-    color: #111111;
+    color: #D97757 !important;
   }
 
   /* Mobile */
