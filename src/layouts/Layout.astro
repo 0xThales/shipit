@@ -23,7 +23,11 @@ const { title, description } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=sentient@400,700&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -47,8 +51,8 @@ const { title, description } = Astro.props;
 
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #ffffff;
-    color: #111111;
+    background: #0A0A0A;
+    color: #E8E8E8;
     line-height: 1.75;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
@@ -56,11 +60,11 @@ const { title, description } = Astro.props;
   }
 
   a {
-    color: #111111;
+    color: #E8E8E8;
   }
 
   ::selection {
-    background: #111111;
+    background: #D97757;
     color: #ffffff;
   }
 </style>

@@ -6,23 +6,41 @@ import Layout from "../layouts/Layout.astro";
   title="Crea tu primer producto con IA en 30 minutos"
   description="Ve nacer un producto real con IA en 30 minutos. Sin slides. Sin teoría. Gratis. Cada sábado a las 10:30am."
 >
-  <nav>
-    <a href="/empieza">Empieza</a>
-    <a href="/unfuckme">Unfuckme</a>
-  </nav>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-bg">
+      <img id="heroBgDay" src="/generated/bg-retro-max-day.jpg" alt="" class="hero-bg-img" />
+      <img id="heroBgNight" src="/generated/bg-retro-max-night2.jpg" alt="" class="hero-bg-img" />
+      <div class="hero-overlay"></div>
+    </div>
 
+    <nav class="nav">
+      <a href="/" class="nav-logo">shipit</a>
+      <div class="nav-links">
+        <a href="#sesiones">Sesiones</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="/empieza">Empieza</a>
+        <a href="#sesiones" class="nav-cta">Reserva tu plaza</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <span class="hero-label">// every saturday @ 10:30am</span>
+      <h1 class="hero-title">Crea tu primer producto <em>con IA</em> en 30 minutos</h1>
+      <p class="hero-sub">Sin slides. Sin teoría. Solo tú, Claude y un producto real.<br>Cada sábado a las 10:30am. Gratis.</p>
+      <a href="#sesiones" class="hero-cta">Reserva tu plaza</a>
+    </section>
+  </div>
+
+  <!-- Content -->
   <main>
-    <header>
-      <p class="wordmark">Crea tu primer producto con IA en 30 minutos</p>
-    </header>
-
     <section>
       <p class="greeting">Hola,</p>
       <p>
         Soy Daniel y no tengo nada que venderte.
       </p>
       <p>
-        Desde diciembre de 2025 el mundo cambió para siempre. 
+        Desde diciembre de 2025 el mundo cambió para siempre.
       </p>
       <p>
         Cualquier persona puede construir software con IA, sin saber programar.
@@ -51,15 +69,15 @@ import Layout from "../layouts/Layout.astro";
     <section>
       <h2>Es para ti si</h2>
       <ul>
-        <li>- No sabes por dónde empezar</li>
-        <li>- Crees que esto no es para ti</li>
-        <li>- Eres técnico pero la IA te parece un mundo aparte</li>
-        <li>- Llevas meses con la misma idea aparcada</li>
-        <li>- Crees que te estás quedando atrás</li>
+        <li>No sabes por dónde empezar</li>
+        <li>Crees que esto no es para ti</li>
+        <li>Eres técnico pero la IA te parece un mundo aparte</li>
+        <li>Llevas meses con la misma idea aparcada</li>
+        <li>Crees que te estás quedando atrás</li>
       </ul>
     </section>
 
-    <section class="session">
+    <section class="session" id="sesiones">
       <h2>Próximas sesiones</h2>
       <table class="session-table">
         <tbody>
@@ -88,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
       <p class="note">Gratis. Plazas limitadas. Cada sábado. Hora de Madrid, España.</p>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="comunidad">
       <h2>Lo que se construye dentro</h2>
       <p>Proyectos reales construidos por miembros de la comunidad, con IA.</p>
       <div class="projects-grid">
@@ -130,74 +148,233 @@ import Layout from "../layouts/Layout.astro";
     <footer>
       <p>
         Daniel Jiménez ·
-        <a
-          href="https://linkedin.com/in/dan-jimenez-dev"
-          target="_blank"
-          rel="noopener noreferrer">LinkedIn</a
-        > ·
-        <a
-          href="https://instagram.com/thales.me"
-          target="_blank"
-          rel="noopener noreferrer">Instagram</a
-        >
+        <a href="https://linkedin.com/in/dan-jimenez-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+        <a href="https://instagram.com/thales.me" target="_blank" rel="noopener noreferrer">Instagram</a>
       </p>
     </footer>
   </main>
 </Layout>
 
 <style>
-  nav {
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
     display: flex;
-    justify-content: flex-end;
-    gap: 24px;
-    padding: 20px 24px;
-    max-width: 640px;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s ease;
+  }
+
+  #heroBgDay { opacity: 1; }
+  #heroBgNight { opacity: 0; }
+
+  .night #heroBgDay { opacity: 0; }
+  .night #heroBgNight { opacity: 1; }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 55%, rgba(0, 0, 0, 0.65) 0%, transparent 100%),
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 35%,
+        rgba(0, 0, 0, 0.55) 65%,
+        rgba(0, 0, 0, 0.88) 100%
+      );
+  }
+
+  .night .hero-overlay {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 55%, rgba(0, 0, 0, 0.5) 0%, transparent 100%),
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 35%,
+        rgba(0, 0, 0, 0.35) 65%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
   }
 
-  nav a {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #111111;
+  .nav-logo {
+    font-family: 'Sentient', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #fff;
     text-decoration: none;
-    border-bottom: 1px solid #e5e5e5;
-    transition: border-color 0.2s ease;
+    letter-spacing: -0.02em;
   }
 
-  nav a:hover {
-    border-bottom-color: #111111;
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 
+  .nav-links a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: #fff;
+  }
+
+  .nav-cta {
+    font-weight: 500;
+    color: #fff !important;
+    padding: 10px 24px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.25s;
+  }
+
+  .nav-cta:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(217, 119, 87, 0.35);
+  }
+
+  /* ===== HERO CONTENT ===== */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px 32px 140px;
+    max-width: 960px;
+    margin: 0 auto;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #D97757;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    animation: fadeRise 0.7s ease-out 0.1s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Sentient', serif;
+    font-weight: 400;
+    font-size: clamp(38px, 5.8vw, 78px);
+    color: #fff;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8), 0 0 60px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeRise 0.8s ease-out 0.25s forwards;
+  }
+
+  .hero-title em {
+    color: #D97757;
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-top: 28px;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeRise 0.8s ease-out 0.45s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    padding: 16px 44px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(217, 119, 87, 0.3);
+    box-shadow: 0 0 30px rgba(217, 119, 87, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeRise 0.8s ease-out 0.6s forwards;
+  }
+
+  .hero-cta:hover {
+    background: rgba(217, 119, 87, 0.12);
+    border-color: rgba(217, 119, 87, 0.5);
+    box-shadow: 0 0 50px rgba(217, 119, 87, 0.18);
+    transform: translateY(-1px);
+  }
+
+  @keyframes fadeRise {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== MAIN CONTENT ===== */
   main {
     max-width: 640px;
     margin: 0 auto;
     padding: 80px 24px;
   }
 
-  /* Header */
-  header {
-    margin-bottom: 32px;
-  }
-
-  .wordmark {
-    font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-  }
-
-  /* Sections */
   section {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
   }
 
   .greeting {
+    font-family: 'Sentient', serif;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
+    color: #fff;
     margin-bottom: 24px;
   }
 
   section p {
-    color: #444444;
+    color: #999;
     margin-bottom: 16px;
   }
 
@@ -205,15 +382,12 @@ import Layout from "../layouts/Layout.astro";
     margin-bottom: 0;
   }
 
-  section p strong {
-    color: #111111;
-  }
-
   h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-family: 'Sentient', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
     margin-bottom: 16px;
-    color: #111111;
+    color: #fff;
   }
 
   /* List */
@@ -223,8 +397,17 @@ import Layout from "../layouts/Layout.astro";
   }
 
   li {
-    color: #444444;
+    color: #999;
     padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #D97757;
   }
 
   /* Photos */
@@ -232,6 +415,7 @@ import Layout from "../layouts/Layout.astro";
     width: 100%;
     margin-top: 24px;
     border-radius: 8px;
+    border: 1px solid #222;
   }
 
   .photo-portrait {
@@ -254,15 +438,16 @@ import Layout from "../layouts/Layout.astro";
     text-decoration: none;
     color: inherit;
     flex-direction: column;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #222;
     border-radius: 12px;
     overflow: hidden;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .project-card:hover {
-    border-color: #ccc;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border-color: #444;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
   .project-card img {
@@ -276,13 +461,13 @@ import Layout from "../layouts/Layout.astro";
   .project-name {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #111;
+    color: #eee;
     padding: 12px 14px 2px;
   }
 
   .project-desc {
     font-size: 0.8rem;
-    color: #999;
+    color: #666;
     padding: 0 14px 12px;
   }
 
@@ -335,7 +520,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .session-table tr {
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #1a1a1a;
     transition: background 0.15s ease;
   }
 
@@ -344,7 +529,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .session-table tr:not(.past):hover {
-    background: #fafafa;
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .session-table tr.past {
@@ -358,7 +543,7 @@ import Layout from "../layouts/Layout.astro";
 
   .session-date {
     font-weight: 600;
-    color: #111;
+    color: #eee;
     font-size: 0.9rem;
     white-space: nowrap;
     width: 60px;
@@ -384,48 +569,62 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .badge-past {
-    background: #f0f0f0;
-    color: #999;
+    background: #1a1a1a;
+    color: #555;
   }
 
   .badge-open {
-    background: #111;
+    background: #D97757;
     color: #fff;
     transition: background 0.15s ease;
   }
 
   .badge-open:hover {
-    background: #333;
+    background: #c4684b;
   }
 
   .note {
     margin-top: 16px;
     font-size: 0.875rem;
-    color: #999999 !important;
+    color: #555 !important;
   }
 
   /* Footer */
   footer {
     margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid #1a1a1a;
   }
 
   footer p {
     font-size: 0.875rem;
-    color: #999999;
+    color: #555;
   }
 
   footer a {
-    color: #999999;
+    color: #555;
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   footer a:hover {
-    color: #111111;
+    color: #D97757;
   }
 
-  /* Mobile */
+  /* ===== MOBILE ===== */
   @media (max-width: 600px) {
+    .nav {
+      padding: 16px 20px;
+    }
+
+    .nav-links a:not(.nav-cta) {
+      display: none;
+    }
+
+    .hero-content {
+      padding: 60px 20px 100px;
+    }
+
     main {
       padding: 48px 20px;
     }
@@ -449,6 +648,17 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script>
+  // Time-based background switching
+  function updateHeroBackground() {
+    const hour = new Date().getHours();
+    const isNight = hour < 7 || hour >= 19;
+    document.querySelector('.hero')?.classList.toggle('night', isNight);
+  }
+
+  updateHeroBackground();
+  setInterval(updateHeroBackground, 60000);
+
+  // Session auto-past marking
   document.querySelectorAll('.session-table tr[data-date]').forEach(row => {
     const dateStr = row.getAttribute('data-date');
     if (!dateStr) return;
