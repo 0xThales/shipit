@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
     </nav>
 
     <section class="hero-content">
-      <span class="hero-label">// every saturday @ 10:30am</span>
+      <span class="hero-label">// every other saturday @ 10:30am</span>
       <h1 class="hero-title">Crea tu primer producto <em>con IA</em> en 30 minutos</h1>
       <p class="hero-sub">Sin slides. Sin teoría. Solo tú, Claude y un producto real.<br>Cada sábado a las 10:30am. Gratis.</p>
       <a href="#sesiones" class="hero-cta">Reserva tu plaza</a>
@@ -287,10 +287,12 @@ import Layout from "../layouts/Layout.astro";
   .hero-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
-    color: #D97757;
+    color: #fff;
     letter-spacing: 0.02em;
     margin-bottom: 28px;
-    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+    background: #D97757;
+    padding: 6px 14px;
+    border-radius: 4px;
     opacity: 0;
     animation: fadeRise 0.7s ease-out 0.1s forwards;
   }
